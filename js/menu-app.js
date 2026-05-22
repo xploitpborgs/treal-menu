@@ -510,7 +510,10 @@ function filterMenuItems() {
 /* ─────────────────────────────────────────────
    Navigation Flow
 ───────────────────────────────────────────── */
-function showCategory(name) {
+function showCategory(name, pushState = true) {
+  if (pushState) {
+    history.pushState({ category: name }, '', '/' + slugify(name));
+  }
   currentCategory = name;
   navCategoryTitle.textContent = name;
   if (breadcrumbCategory) breadcrumbCategory.textContent = name;
@@ -541,7 +544,10 @@ function showCategory(name) {
   }, 400);
 }
 
-function showWelcomeScreen() {
+function showWelcomeScreen(pushState = true) {
+  if (pushState) {
+    history.pushState({ category: null }, '', '/');
+  }
   detailPage.style.opacity = '0';
   setTimeout(() => {
     detailPage.classList.add('hidden');
@@ -701,7 +707,47 @@ function bindEvents() {
   if (clearSelectionBtn) clearSelectionBtn.addEventListener('click', clearSelection);
 }
 
+// URL Routing Logic
+function slugify(text) {
+  return text.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '-');
+}
+
+function getCategoryFromSlug(slug) {
+  for (let i = 0; i < menuData.length; i++) {
+    if (slugify(menuData[i].category) === slug) {
+      return menuData[i].category;
+    }
+  }
+  return null;
+}
+
+function handleInitialRoute() {
+  const path = window.location.pathname.replace(/^\/+|\/+$/g, '');
+  if (path && path !== 'index.html') {
+    const matchedCategory = getCategoryFromSlug(path);
+    if (matchedCategory) {
+      // Small timeout ensures DOM layout completes before transition
+      setTimeout(() => {
+        showCategory(matchedCategory, false);
+      }, 100);
+    } else {
+      history.replaceState({ category: null }, '', '/');
+    }
+  } else {
+    history.replaceState({ category: null }, '', '/');
+  }
+}
+
+window.addEventListener('popstate', (e) => {
+  if (e.state && e.state.category) {
+    showCategory(e.state.category, false);
+  } else {
+    showWelcomeScreen(false);
+  }
+});
+
 // Initializations
 loadSelection();
 bindEvents();
 initQrAdmin();
+handleInitialRoute();
