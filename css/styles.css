@@ -122,7 +122,7 @@
   .welcome-logo {
     height: 130px;
     /* Change this number to move it left/right on desktop */
-    transform: translateX(-10px);
+    transform: translateX(-30px);
   }
 }
 

@@ -54,7 +54,7 @@ const menuData = {
       category: 'SOUPS',
       items: [
         {
-          name: "The Queen', image: 'https://loremflickr.com/150/150/the,queen,food?lock=12's Bowl",
+          name: "The Queen's Bowl", image: 'https://loremflickr.com/150/150/the,queen,food?lock=12',
           price: '₦12,000',
           desc: 'Braised chunky cut prawn, chicken and fish in an aromatic Nigerian pepper stock with vegetables and herb.'
         },
@@ -259,7 +259,7 @@ const menuData = {
       category: 'WHISKY — MALT, RYE & BOURBONS',
       isTable: true,
       items: [
-        { name: "Jack Daniel', image: 'https://loremflickr.com/150/150/jack,daniel,food?lock=75's", bottle: '₦43,500', tot: '—' },
+        { name: "Jack Daniel's", image: 'https://loremflickr.com/150/150/jack,daniel,food?lock=75', bottle: '₦43,500', tot: '—' },
         { name: 'Jameson', image: 'https://loremflickr.com/150/150/jameson,food?lock=76', bottle: '₦37,000', tot: '—' },
         { name: 'Jameson Black Barrel', image: 'https://loremflickr.com/150/150/jameson,black,barrel,food?lock=77', bottle: '₦61,500', tot: '—' }
       ]
@@ -329,7 +329,7 @@ const menuData = {
       category: 'GIN — STANDARD',
       isTable: true,
       items: [
-        { name: "Gordon', image: 'https://loremflickr.com/150/150/gordon,food?lock=97's London Dry", bottle: '₦12,500', tot: '₦2,000' },
+        { name: "Gordon's London Dry", image: 'https://loremflickr.com/150/150/gordon,food?lock=97', bottle: '₦12,500', tot: '₦2,000' },
         { name: 'Beefeater London Dry', image: 'https://loremflickr.com/150/150/beefeater,london,dry,food?lock=98', bottle: '₦32,500', tot: '₦3,500' }
       ]
     },
@@ -642,7 +642,7 @@ const menuData = {
       items: [
         { name: 'Mojito Island', image: 'https://loremflickr.com/150/150/mojito,island,food?lock=196', price: '₦9,000', desc: 'Sparkling water, lime, cucumber paste, mint leaves.' },
         { name: 'Chapman', image: 'https://loremflickr.com/150/150/chapman,food?lock=197', price: '₦9,000', desc: 'Fanta, Sprite, Angostura bitters, grenadine, orange juice, garnished with cucumber and orange slice.' },
-        { name: "Passion ', image: 'https://loremflickr.com/150/150/passion,food?lock=198'n' Glow", price: '₦9,000', desc: 'Pineapple juice, ginger extract, lemon/lime, honey syrup, soda.' },
+        { name: "Passion 'n' Glow", image: 'https://loremflickr.com/150/150/passion,food?lock=198', price: '₦9,000', desc: 'Pineapple juice, ginger extract, lemon/lime, honey syrup, soda.' },
         { name: 'Rocky Ice Tea', image: 'https://loremflickr.com/150/150/rocky,ice,tea,food?lock=199', price: '₦9,000', desc: 'Lemongrass, ginger, dash of turmeric (optional), on the rocks.' },
         { name: 'Virgin Margarita', image: 'https://loremflickr.com/150/150/virgin,margarita,food?lock=200', price: '₦10,000', desc: 'Non-alcoholic tequila, lime juice, soda, agave.' },
         { name: 'Cucumber Cooler', image: 'https://loremflickr.com/150/150/cucumber,cooler,food?lock=201', price: '₦9,000', desc: 'Cucumber juice, lime juice, simple syrup, soda.' },
