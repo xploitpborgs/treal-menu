@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Refresh Menu - Treal Hotels &amp; Suites</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="js/tailwind-config.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Gelasio:wght@600&family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet" />
+  <link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body
+  class="bg-background text-on-surface font-body-md min-h-screen antialiased selection:bg-surface selection:text-primary overflow-x-hidden">
+  <!-- Top Navigation -->
+  <nav class="fixed top-0 left-0 w-full h-[80px] bg-background z-50 border-b border-primary/15 hidden" id="top-nav">
+    <div
+      class="relative max-w-4xl mx-auto w-full h-full flex justify-between items-center px-margin-mobile md:px-margin-desktop">
+
+      <!-- Desktop: Back button -->
+      <div
+        class="hidden md:flex items-center gap-2 cursor-pointer group hover:text-primary transition-colors duration-300 w-1/4"
+        id="back-btn">
+        <span
+          class="text-[10px] tracking-[3px] font-body-md text-on-surface group-hover:text-primary transition-colors duration-300">←
+          MENU</span>
+      </div>
+
+      <!-- Mobile: Hamburger + Breadcrumb -->
+      <div class="flex md:hidden items-center gap-2 flex-1 min-w-0 overflow-hidden">
+        <button id="hamburger-btn"
+          class="flex-shrink-0 w-9 h-9 flex items-center justify-center text-on-surface hover:text-primary transition-colors duration-200 focus:outline-none -ml-1"
+          aria-label="Open category menu" aria-expanded="false">
+          <span class="material-symbols-outlined text-[22px]">menu</span>
+        </button>
+        <nav class="flex items-center gap-1 min-w-0 overflow-hidden" id="breadcrumb-nav" aria-label="Breadcrumb">
+
+          <span id="breadcrumb-category"
+            class="text-[18px] tracking-[2px] uppercase font-body-md text-primary font-bold truncate"></span>
+        </nav>
+      </div>
+
+      <!-- Desktop: Centred category title -->
+      <div
+        class="hidden md:block text-[20px] font-headline-sm text-primary text-center absolute left-1/2 -translate-x-1/2"
+        id="nav-category-title">Refresh</div>
+
+      <div class="flex items-center justify-end relative w-1/4" id="search-container">
+        <input
+          class="w-0 opacity-0 border-0 border-b border-primary bg-transparent text-body-md focus:ring-0 px-0 py-1 mr-6 outline-none"
+          id="menu-search" placeholder="Search menu..." type="text" />
+        <span
+          class="material-symbols-outlined text-[20px] text-on-surface-variant cursor-pointer hover:text-primary transition-colors duration-300 absolute right-0"
+          id="search-icon">search</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Category Switcher Container -->
+  <div class="fixed top-[72px] left-0 w-full bg-background border-b border-primary/10 z-40 flex flex-col hidden"
+    id="category-switcher-container">
+    <div class="w-full px-margin-mobile md:px-margin-desktop">
+      <div
+        class="max-w-4xl mx-auto w-full h-[48px] flex items-center justify-start md:justify-center overflow-x-auto scrollbar-none gap-6"
+        id="category-switcher"></div>
+    </div>
+
+  </div>
+
+  <!-- Welcome Screen -->
+  <main
+    class="min-h-screen flex flex-col px-margin-mobile md:px-margin-desktop py-12 relative transition-opacity duration-400 opacity-100"
+    id="welcome-screen">
+
+    <div
+      class="flex-grow flex flex-col justify-center items-center text-center max-w-container-max-width mx-auto w-full relative z-10">
+
+      <!-- Hero Logo -->
+      <div class="animate-fade-in delay-100 mb-8 flex flex-col items-center justify-center w-full">
+        <img src="treal-logo.png" alt="Treal Hotels &amp; Suites" class="welcome-logo" />
+        <h2 class="text-[24px] md:text-[28px] font-headline-sm text-primary mt-3 tracking-[4px] uppercase font-bold">Refresh</h2>
+      </div>
+
+      <div class="w-[48px] h-[1px] bg-primary/40 mb-10 animate-fade-in delay-200"></div>
+
+      <!-- Category Card List -->
+      <ul class="w-full max-w-sm animate-fade-in delay-300">
+        <li class="w-full border-b border-primary/10">
+          <button class="menu-category-card" data-category="À La Carte" type="button">
+            <div class="card-left">
+              <span class="card-name">À La Carte</span>
+              <span class="card-sub">Breakfast · Starters · Mains · Dessert</span>
+            </div>
+            <span class="material-symbols-outlined card-arrow">chevron_right</span>
+          </button>
+        </li>
+        <li class="w-full border-b border-primary/10">
+          <button class="menu-category-card" data-category="Beverages" type="button">
+            <div class="card-left">
+              <span class="card-name">Beverages</span>
+              <span class="card-sub">Spirits · Wines · Beer · Coffee</span>
+            </div>
+            <span class="material-symbols-outlined card-arrow">chevron_right</span>
+          </button>
+        </li>
+        <li class="w-full border-b border-primary/10">
+          <button class="menu-category-card" data-category="In-Room Dining" type="button">
+            <div class="card-left">
+              <span class="card-name">In-Room Dining</span>
+              <span class="card-sub">Delivered to your suite</span>
+            </div>
+            <span class="material-symbols-outlined card-arrow">chevron_right</span>
+          </button>
+        </li>
+        <li class="w-full border-b border-primary/10">
+          <button class="menu-category-card" data-category="Pool Menu" type="button">
+            <div class="card-left">
+              <span class="card-name">Pool Menu</span>
+              <span class="card-sub">Casual · Platters · Grills</span>
+            </div>
+            <span class="material-symbols-outlined card-arrow">chevron_right</span>
+          </button>
+        </li>
+        <li class="w-full">
+          <button class="menu-category-card" data-category="Cocktails &amp; Mocktails" type="button">
+            <div class="card-left">
+              <span class="card-name">Cocktails &amp; Mocktails</span>
+              <span class="card-sub">Crafted in-house</span>
+            </div>
+            <span class="material-symbols-outlined card-arrow">chevron_right</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="w-full flex flex-col items-center py-8 animate-fade-in delay-500">
+      <span class="text-[10px] font-body-md text-on-surface-variant">© Treal Hotels &amp; Suites. All rights
+        reserved.</span>
+    </div>
+  </main>
+
+  <!-- Menu Detail Page -->
+  <main
+    class="hidden min-h-screen flex flex-col px-margin-mobile md:px-margin-desktop pt-28 pb-24 transition-opacity duration-400 opacity-0 relative bg-background"
+    id="detail-page">
+    <div class="max-w-4xl mx-auto w-full">
+      <div class="mb-10 bg-surface p-5 text-center text-warm-brown text-[12px] font-body-md border border-primary/10">
+        <p class="mb-2 text-[13px] text-primary font-bold tracking-wide font-lato-wide">Allergen Information</p>
+        <p class="mb-3 text-[12px] text-warm-brown font-lato">Please inform your server of any allergies or dietary
+          requirements before ordering.</p>
+        <div class="w-8 h-[1px] bg-primary/30 mx-auto mb-3"></div>
+        <span class="font-bold text-primary">Key:</span> (N) Nuts &nbsp;·&nbsp; (D) Dairy &nbsp;·&nbsp; (E) Eggs
+        &nbsp;·&nbsp; (F) Fish &nbsp;·&nbsp; (SH) Shellfish &nbsp;·&nbsp; (G) Gluten &nbsp;·&nbsp; (GF) Gluten-Free
+        &nbsp;·&nbsp; (S) Soy &nbsp;·&nbsp; (SE) Sesame &nbsp;·&nbsp; (V) Vegetarian/Vegan
+      </div>
+
+      <div class="w-full" id="menu-content-container">
+        <div class="hidden text-center text-warm-brown py-12 font-headline-sm text-[20px] font-gelasio"
+          id="no-results-msg">No items found</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- QR Admin Panel -->
+  <div class="qr-panel" id="qr-panel">
+    <img src="treal-logo.png" alt="Treal Hotels &amp; Suites Logo" class="h-12 w-auto object-contain mb-2" />
+    <span class="qr-panel-title">Refresh</span>
+    <p class="qr-panel-subtitle">Treal Hotels &amp; Suites · Lagos</p>
+    <div class="qr-code-frame" id="qrcode-admin"></div>
+    <p class="qr-panel-caption">Scan to open the digital menu</p>
+    <button class="qr-panel-button" id="download-qr-btn" type="button">Download PNG</button>
+    <button class="qr-panel-close" id="close-qr-btn" type="button">Close</button>
+  </div>
+
+  <!-- Category Navigation Drawer (mobile hamburger) -->
+  <div id="cat-nav-drawer"
+    class="fixed inset-0 z-[60] opacity-0 pointer-events-none transition-opacity duration-300 flex justify-start"
+    aria-hidden="true">
+    <!-- Backdrop -->
+    <div id="cat-nav-overlay" class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+
+    <!-- Panel -->
+    <div
+      class="cat-nav-panel relative w-[290px] max-w-[80vw] h-full bg-background shadow-2xl flex flex-col transform -translate-x-full transition-transform duration-300 ease-out border-r border-primary/10">
+
+      <!-- Panel Header -->
+      <div class="px-5 py-4 border-b border-primary/10 flex items-center justify-between">
+        <img src="treal-logo.png" alt="Treal" class="h-8 w-auto object-contain" />
+        <button id="close-cat-nav-btn"
+          class="material-symbols-outlined text-[22px] text-on-surface-variant hover:text-primary transition-colors focus:outline-none">close</button>
+      </div>
+
+      <!-- Category Links -->
+      <nav class="flex-grow overflow-y-auto px-3 py-5" id="cat-nav-links" aria-label="Categories"></nav>
+
+      <!-- Panel Footer -->
+      <div class="px-5 py-4 border-t border-primary/10">
+        <button id="cat-nav-home-btn"
+          class="flex items-center gap-2 text-[10px] tracking-[2px] uppercase font-lato font-bold text-on-surface-variant hover:text-primary transition-colors focus:outline-none">
+          <span class="material-symbols-outlined text-[16px]">home</span>
+          Main Menu
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Selection Button -->
+  <button id="floating-selection-btn"
+    class="fixed bottom-6 right-6 z-40 bg-primary text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-transform duration-300 scale-0 hover:scale-105 active:scale-95 focus:outline-none"
+    aria-label="View Selection">
+    <span class="material-symbols-outlined text-2xl">shopping_bag</span>
+    <span id="selection-count"
+      class="absolute -top-1 -right-1 bg-white text-primary text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center border border-primary/20 shadow-sm">0</span>
+  </button>
+
+  <!-- Selection Drawer -->
+  <div id="selection-drawer"
+    class="fixed inset-0 z-50 opacity-0 pointer-events-none transition-opacity duration-300 flex justify-end"
+    aria-hidden="true">
+    <!-- Backdrop overlay -->
+    <div id="drawer-overlay" class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+
+    <!-- Drawer Container -->
+    <div
+      class="relative w-full max-w-md h-full bg-background shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-out border-l border-primary/10">
+
+      <!-- Drawer Header -->
+      <div class="px-6 py-5 border-b border-primary/10 flex items-center justify-between bg-surface">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary">shopping_bag</span>
+          <h2 class="text-[18px] font-headline-sm text-primary">My Selection</h2>
+        </div>
+        <button id="close-drawer-btn"
+          class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors focus:outline-none">close</button>
+      </div>
+
+      <!-- Drawer Content (List of selected items) -->
+      <div class="flex-grow overflow-y-auto px-6 py-4 space-y-4" id="selection-items-container">
+        <!-- Injected list of items -->
+      </div>
+
+      <!-- Drawer Footer -->
+      <div class="px-6 py-6 border-t border-primary/10 bg-surface space-y-4">
+        <div class="flex justify-between items-center text-on-surface">
+          <span class="text-[11px] font-label-caps tracking-[2px] uppercase font-lato-bold">Total Est.</span>
+          <span id="selection-total" class="text-[20px] font-headline-sm text-primary font-bold">₦0</span>
+        </div>
+        <p class="text-[10px] text-warm-brown font-lato text-center">Please show this summary to your waiter to place
+          your order.</p>
+        <div class="flex gap-3">
+          <button id="clear-selection-btn"
+            class="flex-1 py-3 text-[10px] tracking-[2px] uppercase font-bold text-on-surface-variant border border-primary/20 hover:text-primary hover:border-primary transition-all duration-200">Clear</button>
+          <button id="close-drawer-action"
+            class="flex-1 py-3 bg-primary text-white text-[10px] tracking-[2px] uppercase font-bold hover:bg-primary/95 transition-all duration-200">Back
+            to Menu</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/menu-data.js"></script>
+  <script src="js/menu-app.js"></script>
+</body>
+
+</html>

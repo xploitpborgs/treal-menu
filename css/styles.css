@@ -1,0 +1,563 @@
+:root {
+  --color-primary: #A31E21;
+  --color-background: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-on-surface: #1a0a0a;
+  --color-on-surface-variant: #625d5d;
+  --color-warm-brown: #59413e;
+  --color-border: rgba(163, 30, 33, 0.15);
+  --color-item-hover: #F7F7F7;
+  --color-shadow: rgba(0, 0, 0, 0.05);
+}
+
+
+
+/* ─────────────────────────────────────────────
+   Material Symbols
+───────────────────────────────────────────── */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+
+.font-gelasio {
+  font-family: 'Gelasio', serif;
+}
+
+.font-gelasio-semibold {
+  font-family: 'Gelasio', serif;
+  font-weight: 600;
+}
+
+.font-lato {
+  font-family: 'Lato', sans-serif;
+}
+
+.font-lato-bold {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+
+.font-lato-wide {
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 0.04em;
+}
+
+/* ─────────────────────────────────────────────
+   Nav link underline hover effect
+───────────────────────────────────────────── */
+.menu-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-underline::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.group:hover .menu-underline::after,
+.menu-underline:hover::after {
+  width: 100%;
+}
+
+/* ─────────────────────────────────────────────
+   Fade-in animation
+───────────────────────────────────────────── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.delay-100 {
+  animation-delay: 80ms;
+}
+
+.delay-200 {
+  animation-delay: 160ms;
+}
+
+.delay-300 {
+  animation-delay: 240ms;
+}
+
+.delay-400 {
+  animation-delay: 320ms;
+}
+
+.delay-500 {
+  animation-delay: 400ms;
+}
+
+/* ─────────────────────────────────────────────
+   Welcome Logo — Hero Centrepiece
+───────────────────────────────────────────── */
+.welcome-logo {
+  height: 90px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  /* Change this number to move it left/right on mobile */
+  transform: translateX(-30px);
+}
+
+@media (min-width: 768px) {
+  .welcome-logo {
+    height: 130px;
+    /* Change this number to move it left/right on desktop */
+    transform: translateX(-10px);
+  }
+}
+
+/* ─────────────────────────────────────────────
+   Category Card Row
+───────────────────────────────────────────── */
+.menu-category-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 18px 4px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  transition: padding-left 200ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.menu-category-card:hover,
+.menu-category-card:focus-visible {
+  padding-left: 10px;
+  outline: none;
+}
+
+.card-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.card-name {
+  font-family: 'Gelasio', serif;
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--color-on-surface);
+  line-height: 1.2;
+  display: block;
+}
+
+.card-sub {
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-on-surface-variant);
+  display: block;
+}
+
+.card-arrow {
+  color: var(--color-primary);
+  font-size: 22px !important;
+  flex-shrink: 0;
+  opacity: 0.45;
+  margin-left: 12px;
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+.menu-category-card:hover .card-arrow,
+.menu-category-card:focus-visible .card-arrow {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+/* ─────────────────────────────────────────────
+   Menu item hover
+───────────────────────────────────────────── */
+.menu-item {
+  transition: background-color 150ms ease;
+}
+
+.menu-item:hover {
+  background-color: var(--color-item-hover);
+}
+
+.menu-grid-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 16px;
+  align-items: baseline;
+}
+
+.menu-price {
+  min-width: 72px;
+}
+
+/* ─────────────────────────────────────────────
+   Search input expand animation
+───────────────────────────────────────────── */
+#menu-search {
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+}
+
+#menu-search:focus,
+#menu-search.has-text {
+  width: 200px;
+  opacity: 1;
+}
+
+.menu-category-title {
+  font-family: 'Gelasio', serif;
+  font-weight: 600;
+}
+
+.menu-category-button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  text-align: inherit;
+}
+
+/* ─────────────────────────────────────────────
+   Allergen inline tag
+   Crimson rectangle warning badge on item names
+───────────────────────────────────────────── */
+.allergen-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-family: 'Lato', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 2px 5px;
+  border-radius: 2px;
+  white-space: nowrap;
+  line-height: 1.4;
+  vertical-align: middle;
+  margin-left: 5px;
+  position: relative;
+  top: -2px;
+}
+
+/* ─────────────────────────────────────────────
+   Price column
+   Always right-aligned, never wraps
+───────────────────────────────────────────── */
+.price-col {
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  color: var(--color-primary);
+  white-space: nowrap;
+  text-align: right;
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.qr-panel {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  background: var(--color-background);
+  color: var(--color-on-surface);
+}
+
+.qr-panel.is-visible {
+  display: flex;
+}
+
+.qr-panel-title {
+  font-family: 'Gelasio', serif;
+  color: var(--color-primary);
+  font-size: 28px;
+}
+
+.qr-panel-subtitle {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--color-on-surface-variant);
+  text-transform: uppercase;
+}
+
+.qr-code-frame {
+  padding: 24px;
+  border: 1px solid var(--color-border);
+  background: #ffffff;
+  /* QR codes always need high contrast white background */
+}
+
+.qr-panel-caption {
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--color-on-surface-variant);
+}
+
+.qr-panel-button {
+  border: none;
+  background: var(--color-primary);
+  color: #ffffff;
+  padding: 12px 32px;
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease;
+}
+
+.qr-panel-button:hover {
+  background: var(--color-primary);
+  filter: brightness(0.9);
+}
+
+.qr-panel-close {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-on-surface-variant);
+  transition: color 0.2s ease;
+}
+
+.qr-panel-close:hover {
+  color: var(--color-primary);
+}
+
+/* ─────────────────────────────────────────────
+   Category Switcher & Scrollbar Hiding
+───────────────────────────────────────────── */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ─────────────────────────────────────────────
+   Floating Selection & Drawer
+───────────────────────────────────────────── */
+#floating-selection-btn.is-visible {
+  transform: scale(1);
+}
+
+#selection-drawer.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#selection-drawer.is-visible>div {
+  transform: translateX(0);
+}
+
+/* ─────────────────────────────────────────────
+   Category Navigation Drawer (hamburger)
+───────────────────────────────────────────── */
+#cat-nav-drawer.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#cat-nav-drawer.is-visible .cat-nav-panel {
+  transform: translateX(0);
+}
+
+/* Category link rows inside the drawer */
+.cat-nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 13px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 150ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cat-nav-item:hover {
+  background-color: var(--color-item-hover);
+}
+
+.cat-nav-item.is-active {
+  background-color: rgba(163, 30, 33, 0.07);
+}
+
+.cat-nav-item-name {
+  font-family: 'Gelasio', serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--color-on-surface);
+  line-height: 1.2;
+  display: block;
+}
+
+.cat-nav-item.is-active .cat-nav-item-name {
+  color: var(--color-primary);
+}
+
+.cat-nav-item-check {
+  font-size: 16px !important;
+  color: var(--color-primary);
+  flex-shrink: 0;
+  opacity: 0;
+}
+
+.cat-nav-item.is-active .cat-nav-item-check {
+  opacity: 1;
+}
+
+/* ─────────────────────────────────────────────
+   Mobile Responsiveness & Stacked Layouts
+   ───────────────────────────────────────────── */
+
+/* Full-width Search Bar takeover on Mobile Navigation */
+@media (max-width: 768px) {
+
+  #top-nav.search-active #back-btn,
+  #top-nav.search-active #nav-category-title,
+  #top-nav.search-active #breadcrumb-nav,
+  #top-nav.search-active #hamburger-btn {
+    display: none !important;
+  }
+
+  #top-nav.search-active #search-container {
+    width: 100% !important;
+    justify-content: flex-start !important;
+  }
+
+  #top-nav.search-active #menu-search {
+    width: 100% !important;
+    opacity: 1 !important;
+    padding-left: 8px !important;
+    margin-right: 36px !important;
+  }
+}
+
+/* Responsive Table conversion to stacked rows */
+@media (max-width: 640px) {
+  table thead {
+    display: none !important;
+  }
+
+  table,
+  table tbody,
+  table tr,
+  table td {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  table tr {
+    padding: 16px 0 !important;
+    border-bottom: 1px solid var(--color-border) !important;
+  }
+
+  table tr:last-child {
+    border-bottom: none !important;
+  }
+
+  table td {
+    padding: 6px 0 !important;
+    text-align: left !important;
+  }
+
+  table td:first-child {
+    font-size: 18px !important;
+    margin-bottom: 8px !important;
+  }
+
+  table td:not(:first-child) {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    border: none !important;
+  }
+
+  /* Hide the row cell if it has the .is-empty class */
+  table td.is-empty {
+    display: none !important;
+  }
+
+  /* Labels for Table columns on mobile */
+  table td:nth-child(2)::before {
+    content: "Bottle";
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--color-on-surface-variant);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+  }
+
+  table td:nth-child(3)::before {
+    content: "Glass / Tot";
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--color-on-surface-variant);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+  }
+}
+
+/* Stacking item layout when screen is narrow */
+@media (max-width: 550px) {
+  .menu-grid-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 6px !important;
+  }
+
+  .menu-grid-row>h4,
+  .menu-grid-row>span {
+    width: 100% !important;
+  }
+
+  .menu-grid-row>.flex,
+  .menu-grid-row>div {
+    display: flex !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    margin-top: 2px !important;
+  }
+}
